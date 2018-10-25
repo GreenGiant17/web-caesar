@@ -30,9 +30,8 @@ form = """
         <form action = '/' method = ['POST']>
             <label for ='input'>Rotate by:</label>
             <input type='text' name = 'rot' value = 0 />
-
-            <textarea>{0}</textarea>
-           
+            
+            <textarea name = 'textarea'>{0}</textarea>           
 
             <br>
 
@@ -50,9 +49,9 @@ def index():
 def encrypt():
     
     rot = int(request.form.get('rot'))
-    text = request.form.get('textarea')    
+    text = request.form.get('textarea')
 
-    return form.format("<h1>" + caesar.rotate_string(text, rot) + "</h1>")
+    return form.format("<h1>" + rotate_string(text, rot) + "</h1>")
 
 
 app.run()
